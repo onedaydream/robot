@@ -1,8 +1,9 @@
 import cv2
 import numpy as np
-import socket
+#import socket
 MIN_MATCH_COUNT=10
 
+'''
 host = "127.0.0.1"
 port = "5555"
 client_socket = socket.socket()
@@ -19,7 +20,7 @@ except socket.error as msg:
     
 sys.stderr.write('Connected\n')
 client_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
-
+'''
 
 detector=cv2.xfeatures2d.SIFT_create()
 
@@ -53,8 +54,8 @@ while True:
         if(m.distance<0.75*n.distance):
             goodMatch_stop.append(m)
     if(len(goodMatch_stop)>5):
-        client_socket.send("found a stop sign")
-
+        #client_socket.send("found a stop sign")
+        print ("fina a stop sign")
     goodMatch_limit5=[]
     for m,n in matches_limit5:
         if(m.distance<0.45*n.distance):
